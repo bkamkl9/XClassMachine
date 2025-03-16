@@ -11,14 +11,14 @@ import {
  * @param context - The context of the method.
  * @returns The target method.
  */
-export function ActivateOnEnter<T extends (...args: any[]) => any>(
+export function WatchStateEnter<T extends (...args: any[]) => any>(
   this: any,
   target: T,
   context: ClassMethodDecoratorContext,
 ): T {
   protectContextKind(context, "method");
   const newTarget = redefineTargetMethod(target, this);
-  addFunctionFlagProperty(newTarget, "_activate_on_enter");
+  addFunctionFlagProperty(newTarget, "_watch_state_enter");
   return newTarget as T;
 }
 
@@ -29,13 +29,13 @@ export function ActivateOnEnter<T extends (...args: any[]) => any>(
  * @param context - The context of the method.
  * @returns The target method.
  */
-export function ActivateOnExit<T extends (...args: any[]) => any>(
+export function WatchStateLeave<T extends (...args: any[]) => any>(
   this: any,
   target: T,
   context: ClassMethodDecoratorContext,
 ): T {
   protectContextKind(context, "method");
   const newTarget = redefineTargetMethod(target, this);
-  addFunctionFlagProperty(newTarget, "_activate_on_exit");
+  addFunctionFlagProperty(newTarget, "_watch_state_leave");
   return newTarget as T;
 }
