@@ -13,10 +13,6 @@ type MachineStatesTemplate<T extends object> = {
   initial: keyof T;
 };
 
-type MachineTemplate__reactive<R extends object> = R extends object ? R : never;
-
-export type MachineTemplate<States extends object, Reactive extends object> =
+export type MachineTemplate<States extends object, Reactive> =
   & MachineStatesTemplate<States>
-  & {
-    reactive: MachineTemplate__reactive<Reactive>;
-  };
+  & { reactive?: Reactive };

@@ -10,7 +10,8 @@
     "include": ["test/**/*.ts"]
   },
   "imports": {
-    "@std/assert": "jsr:@std/assert@1"
+    "@std/assert": "jsr:@std/assert@1",
+    "vue-demi": "npm:vue-demi@^0.14.10"
   },
   "lint": {
     "rules": {
